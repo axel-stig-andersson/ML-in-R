@@ -2,7 +2,7 @@
 # -------------------------------------- Part 1 ------------------------------------------
 # ----------------------------------------------------------------------------------------
 # Reading the data
-data <- read.csv("data/optdigits.csv")
+data <- read.csv("data/optidigits.csv")
 
 # Dividing in to training, validation and test
 # n is the number of rows in optdigits.csv. Data[1] means we just count one column, so we only
@@ -72,7 +72,7 @@ missclass_test <- missclass(test_predict, test$X0.26)
 # We then get that 25 of these rows where actually sevens => 0.833333 is the value for column 
 # Seven in row 2. 
 
-#all eights just gets all indexes from train data where hit was an eight.
+# all eights just gets all indexes from train data where hit was an eight.
 all_eights <- train[which(train$X0.26 == "8"),]
 # eight_probs first filters out the 1911x10 probability numerics from kknn_train, then sorts by 
 # the rows (by index) that had eights. 
@@ -129,13 +129,6 @@ lines(best_k, missclass_bestk*100, pch=1, type="b")
 # -------------------------------------- Part 5 ------------------------------------------
 # ----------------------------------------------------------------------------------------
 
-# cross_entropy <- function(p, phat){
-#   x <- 0
-#   for (i in 1:length(p)){
-#     x <- x + (p[i] * log((1e-15) + phat[i])) 
-#   }
-#   return(-x) 
-# }
 
 multi_cross_entropy <- c()
 loopsize <- nrow(valid)
