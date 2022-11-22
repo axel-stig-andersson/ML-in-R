@@ -3,7 +3,7 @@
 # ----------------------------------------------------------------------------------------
   
 # Reading the data
-data <- read.csv("data/parkinsons.csv")
+data <- read.csv("data/parkinson.csv")
 
 # Dividing in to training and test
 library(caret)

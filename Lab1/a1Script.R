@@ -152,7 +152,7 @@ for (i in 1:30) {
   # multi_cross_entropy <- c(multi_cross_entropy, cross_entropy(valid$X0.26, numeric_predicts))
 
 print(multi_cross_entropy)
-plot(multi_cross_entropy)
+plot(multi_cross_entropy, col="red")
 
 
 
