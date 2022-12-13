@@ -41,7 +41,8 @@ X <- as.matrix(train_scaled%>%select(Jitter...:PPE))
 loglikelyhood = function(theta){
   sigma <- tail(theta,n=1)
   
-  return(-N/2*log(2*pi*sigma^2) - (1 / (2*(sigma^2)))* (t(Y - X %*% theta[-17])) %*% (Y - X%*%theta[-17]))  
+  return(-N/2*log(2*pi*sigma^2) - (1 / (2*(sigma^2)))* 
+           (t(Y - X %*% theta[-17])) %*% (Y - X%*%theta[-17]))  
 }
 
 Ridge <-  function(theta, lambda) {
@@ -60,7 +61,6 @@ df <- function(lambda) {
 theta.opt.lambda1 <- RidgeOpt(theta=rep(1,17), lambda = 1)
 theta.opt.lambda100 <- RidgeOpt(theta=rep(1,17), lambda = 100)
 theta.opt.lambda1000 <- RidgeOpt(theta=rep(1,17), lambda = 1000)
-
 
 # ----------------------------------------------------------------------------------------
 # -------------------------------------- Part 4 ------------------------------------------
@@ -83,6 +83,8 @@ mse.test.opt.100 <- mean((test_scaled$motor_UPDRS-pred.test.l100)^2)
 mse.test.opt.1000 <- mean((test_scaled$motor_UPDRS-pred.test.l1000)^2) 
 
 # Degrees of freedom
-df.1 <- df(100) 
+df.1 <- df(1) 
 df.100 <- df(100)
 df.1000 <- df(1000)
+
+

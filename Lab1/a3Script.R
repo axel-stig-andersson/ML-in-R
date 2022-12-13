@@ -66,6 +66,7 @@ data$Z2 = (V2^3)*V8
 data$Z3 = (V2^2)*(V8^2)
 data$Z4 = V2*(V8^3)
 data$Z5 = V8^4
+attach(data)
 
 # Performing the scatterplot
 data.reg.new.cols <- glm(V9~V2+V8+Z1+Z2+Z3+Z4+Z5, family = "binomial")

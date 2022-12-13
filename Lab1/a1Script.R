@@ -157,6 +157,7 @@ print(multi_cross_entropy)
 plot(multi_cross_entropy, col="red")
 
 which.min(multi_cross_entropy)
+multi_cross_entropy[6]
 
 
 
