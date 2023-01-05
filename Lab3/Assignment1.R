@@ -6,7 +6,8 @@ st <- merge(stations,temps,by="station_number")
 
 
 
-target_date <- as.Date("2017-05-06") # The date to predict (up to the students)# Filtering out all the dates that were before the one to predict.
+target_date <- as.Date("2017-05-06") # The date to predict (up to the students)
+# Filtering out all the dates that were before the one to predict.
 temps_prev <- temps[temps$date < target_date,]
 
 h_distance <- 100000
@@ -28,10 +29,10 @@ stat_pos <- cbind(st$latitude, st$longitude)
 distance <- distHaversine(target_vec, stat_pos)
 
 
-times <- c("04:00:00", "06:00:00", "08:00:00","10:00:00", "12:00:00", "14:00:00", "16:00:00", "18:00:00", "20:00:00", "22:00:00", "24:00:00")
+times <- c("04:00:00", "06:00:00", "08:00:00","10:00:00", "12:00:00", "14:00:00", 
+           "16:00:00", "18:00:00", "20:00:00", "22:00:00", "24:00:00")
 temp <- vector(length=length(times))
 # Students’ code here
-plot(temp, type="o")
 
 #---------------------------------------------------------------------------------
 #------------------------------------FUNCTIONS---------------------------------------
@@ -80,7 +81,9 @@ for (i in 1:length(times)) {
   pred_temps_mult[i] <- tmp_mult
 }
 
-pred_temps_mult
+pred_temps_sum
+# check is returning the amount of days that differ from our goal date to any given 
+# Observation, this is then filtered out.
 check <- (as.numeric(as.Date(target_date) - as.Date(st$date),
                      unit="days") %% 365) 
 close.dates <- which(c(check, 365-check)<4)

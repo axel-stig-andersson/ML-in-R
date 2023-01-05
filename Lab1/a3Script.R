@@ -45,9 +45,10 @@ missclass.2 <- 1 - sum(diag(confusion.matrix.2))/length(pred.log.req.2)
 pred.diabetes.groups.2 <- as.factor(ifelse(pred.log.req.2, "Predicted Diabetes", "Predicted Healthy"))
 pred.plot.2 <- plot(x=V8, y=V2, main = "Prediction plot 0.2", xlab = "Age", ylab = "PG concentration", 
                     pch=as.numeric(pred.diabetes.groups.2), col=pred.diabetes.groups.2)
-legend("bottomright", legend = c("Pred. diabetes", "Pred. healthy"), col = pred.diabetes.groups.2, pch = pred.diabetes.groups.2)
+legend("bottomright", legend = c("Pred. diabetes", "Pred. healthy"), col = pred.diabetes.groups.2, 
+       pch = pred.diabetes.groups.2)
 
-################################### FOR 0.8 #################################
+######################################## FOR 0.8 ###########################################
 pred.log.req.8 <- predict(data.log.reg, data, type = "response")
 pred.log.req.8 <- ifelse(pred.log.req.8 > 0.8, 1, 0) 
 confusion.matrix.8 <- table(pred.log.req.8, V9)

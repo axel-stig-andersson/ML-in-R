@@ -11,9 +11,7 @@ data2 <- read.csv("data/optidigits.csv")
 library(dplyr)
 n=dim(data)[1]
 set.seed(12345) 
-# id is 1911 randomly distributed integers between 1 and 3822.
 id=sample(1:n, floor(n*0.5)) 
-# train is the actual data on those rows 
 train=data[id,] 
 id1=setdiff(1:n, id)
 set.seed(12345) 

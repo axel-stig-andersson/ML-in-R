@@ -38,6 +38,8 @@ summary(lr1)
 N <- nrow(train_scaled)
 Y <- as.matrix(train_scaled$motor_UPDRS)
 X <- as.matrix(train_scaled%>%select(Jitter...:PPE))
+
+
 loglikelyhood = function(theta){
   sigma <- tail(theta,n=1)
   
@@ -54,7 +56,7 @@ RidgeOpt <- function(theta, lambda) {
 
 df <- function(lambda) {
   I <- as.matrix(diag(16))
-  return(sum(diag((X%*%(t(X)%*%X + lambda*I)^(-1))%*%t(X))))
+  return(sum(diag((X%*%(solve(t(X)%*%X + lambda*I)))%*%t(X))))
 }
 
 #Testing for different lambda values
